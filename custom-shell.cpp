@@ -114,6 +114,11 @@ void CustomShell::Variable::set(const std::string &assignment)
     }
 }
 
+void CustomShell::set_prompt(const std::string &prompt)
+{
+    SHELL_PROMPT = prompt;
+}
+
 void CustomShell::register_variable(std::string cli_name, void* variable, std::string type)
 {
     var_map[cli_name] = {variable, type};

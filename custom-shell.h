@@ -16,6 +16,7 @@ class CustomShell
 {
     public:
         CustomShell(std::string _shell_prompt = "myshell> ");
+        void set_prompt(const std::string &prompt);
         void register_variable(std::string cli_name, void* variable, std::string type);
         void register_command(std::string cli_name, std::function<int(const std::string &arg)> func);
         void run();
