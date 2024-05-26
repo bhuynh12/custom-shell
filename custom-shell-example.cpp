@@ -29,6 +29,7 @@ int bar(const std::string &arg = "");
 int main(int argc, char** argv)
 {
     CustomShell myshell(SHELL_PROMPT);
+    myshell.set_prompt("test_prompt_change> ");
     myshell.register_variable("random_int", &random_int, "int");
     myshell.register_variable("random_float", &random_float, "float");
     myshell.register_variable("random_double", &random_double, "double");
