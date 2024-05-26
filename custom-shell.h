@@ -10,11 +10,8 @@
 #include <readline/history.h>
 #include <unordered_map>
 #include <vector>
+#include "ansi-color-codes/ansi-color-codes.h"
 
-#define RESET       "\033[0m"
-#define RED         "\033[31m"
-#define GREEN       "\033[32m"
-#define YELLOW      "\033[33m"
 class CustomShell
 {
     public:

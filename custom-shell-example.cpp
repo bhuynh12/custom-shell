@@ -10,11 +10,6 @@
 #include <chrono>
 #include "custom-shell.h"
 
-#define RESET       "\033[0m"
-#define RED         "\033[31m"
-#define GREEN       "\033[32m"
-#define YELLOW      "\033[33m"
-
 auto curr_time = std::chrono::steady_clock::now();
 auto prev_time = curr_time;
 uint64_t dt_ms = std::chrono::duration_cast<std::chrono::milliseconds>(curr_time - prev_time).count();
