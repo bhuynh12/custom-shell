@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.0)
 project(custom-shell)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_BUILD_TYPE Debug)
 
 execute_process(
     COMMAND sh -c "git describe --tags --always | cut -c 2-"
