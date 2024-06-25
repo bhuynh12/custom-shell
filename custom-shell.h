@@ -20,6 +20,7 @@ class CustomShell
         void register_variable(std::string cli_name, void* variable, std::string type);
         void register_command(std::string cli_name, std::function<int(const std::string &arg)> func);
         void run();
+        static int quit(const std::string &arg = "");
 
         static std::vector<std::string> split_arg(std::string arg);
 
@@ -51,7 +52,6 @@ class CustomShell
 
         // CLI variables/commands
         int verbose_wtf = 0;
-        static int quit(const std::string &arg = "");
 
 };
 
