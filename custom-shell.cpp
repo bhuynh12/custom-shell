@@ -1,4 +1,6 @@
 #include "custom-shell.h"
+#include "ansi-color-codes/ansi-color-codes.h"
+#include <algorithm>
 
 CustomShell* CustomShell::customShellInstance = nullptr;
 

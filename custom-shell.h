@@ -1,16 +1,13 @@
 #ifndef CUSTOMSHELLH
 #define CUSTOMSHELLH
 
-#include <algorithm>
 #include <cstring>
 #include <functional>
 #include <string>
-#include <thread>
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <unordered_map>
 #include <vector>
-#include "ansi-color-codes/ansi-color-codes.h"
 
 class CustomShell
 {

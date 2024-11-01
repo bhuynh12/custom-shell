@@ -11,7 +11,7 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
     )
 
-include_directories(include)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 add_library(${PROJECT_NAME}_obj OBJECT ${PROJECT_NAME}.cpp)
 set_property(TARGET ${PROJECT_NAME}_obj PROPERTY POSITION_INDEPENDENT_CODE 1)
@@ -23,6 +23,18 @@ set_target_properties(${PROJECT_NAME}_static PROPERTIES VERSION ${GIT_VERSION})
 add_library(${PROJECT_NAME}_shared SHARED $<TARGET_OBJECTS:${PROJECT_NAME}_obj>)
 target_link_libraries(${PROJECT_NAME}_shared readline)
 set_target_properties(${PROJECT_NAME}_shared PROPERTIES VERSION ${GIT_VERSION})
+
+set_target_properties(${PROJECT_NAME}_static PROPERTIES PUBLIC_HEADER "${PROJECT_NAME}.h")
+set_target_properties(${PROJECT_NAME}_shared PROPERTIES PUBLIC_HEADER "${PROJECT_NAME}.h")
+
+install(TARGETS
+    ${PROJECT_NAME}_static
+    ${PROJECT_NAME}_shared
+    EXPORT ${PROJECT_NAME}
+    ARCHIVE DESTINATION lib/${PROJECT_NAME}
+    LIBRARY DESTINATION lib/${PROJECT_NAME}
+    PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}
+)
 
 if(${BUILD_EXAMPLE})
     include_directories(${PROJECT_SOURCE_DIR})
