@@ -1,3 +1,3 @@
 [submodule "include/ansi-color-codes"]
 	path = include/ansi-color-codes
-	url = ssh://git@stationarybreads.duckdns.org:2484/~/ansi-color-codes
+	url = git@github.com:bhuynh12/ansi-color-codes.git
