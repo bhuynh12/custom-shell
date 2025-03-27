@@ -172,7 +172,6 @@ char** CustomShell::command_completion(const char *text, int start, int end)
 {
     CustomShell* instance = customShellInstance;
 
-    rl_attempted_completion_over = 1;
     return rl_completion_matches(text, instance->command_generator);
 }
 
