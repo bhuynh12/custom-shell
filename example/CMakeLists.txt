@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5.0)
 project(custom-shell-example)
 
 add_executable(${PROJECT_NAME} ${PROJECT_NAME}.cpp)

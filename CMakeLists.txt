@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28.3)
+cmake_minimum_required(VERSION 3.5.0)
 project(custom-shell)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

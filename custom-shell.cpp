@@ -45,10 +45,13 @@ void CustomShell::execute_command(std::string user_in)
     {
         return;
     }
+    trim_str(&user_in);
+
     size_t delim_index = user_in.find(CMD_DELIMITER);
     std::string cmd = user_in.substr(0, delim_index); 
     std::string arg = (delim_index != std::string::npos) ? user_in.substr(delim_index + 1) : ""; 
-    trim_str(arg);
+    trim_str(&cmd);
+    trim_str(&arg);
 
     if(verbose_wtf)
     {
@@ -68,7 +71,7 @@ void CustomShell::execute_command(std::string user_in)
         else if(arg.find("=") != std::string::npos)
         {
             std::string assignment = arg.substr(arg.find("=") + 1);
-            trim_str(assignment);
+            trim_str(&assignment);
             this_var.set(assignment);
         }
     }
@@ -175,12 +178,10 @@ char** CustomShell::command_completion(const char *text, int start, int end)
     return rl_completion_matches(text, instance->command_generator);
 }
 
-void CustomShell::trim_str(std::string &str)
+void CustomShell::trim_str(std::string* str)
 {
-    str.erase(str.begin(), std::find_if(str.begin(), str.end(),
-                std::not1(std::ptr_fun<int, int>(std::isspace))));
-    str.erase(std::find_if(str.rbegin(), str.rend(),
-            std::not1(std::ptr_fun<int, int>(std::isspace))).base(), str.end());
+    str->erase(str->find_last_not_of("\t\n\v\f\r ") + 1); // right trim
+    str->erase(0, str->find_first_not_of("\t\n\v\f\r ")); // left trim
 }
 
 void CustomShell::trim_cstr(char* &str)

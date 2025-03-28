@@ -42,7 +42,7 @@ class CustomShell
         static char* command_generator(const char *text, int state);
         static char** command_completion(const char *text, int start, int end);
 
-        void trim_str(std::string &str);
+        void trim_str(std::string* str);
         void trim_cstr(char* &str);
 
         void execute_command(std::string user_in);
